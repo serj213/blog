@@ -24,6 +24,6 @@ export interface ICartItemDetail {
 }
 
 export interface ICartState {
-  carts: ICartItemDetail[] | ICartItemSmall[] | null;
+  carts: ICartItemSmall[] | null;
   category: number;
 }

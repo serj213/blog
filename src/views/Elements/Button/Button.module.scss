@@ -1,0 +1,21 @@
+@import "../../../assets/styles/vars.scss";
+
+.button {
+    display: inline-block;
+    padding: 13px 26px;
+    color: $white;
+    font-family: $play;
+    box-shadow: 0px 4px 15px rgba(158, 158, 158, 0.25);
+    border-radius: 20px;
+    border: none;
+    background-color: $purple;
+    font-size: 20px;
+    line-height: calc(23 / 20 * 100%);
+    transition: background-color 0.2s linear;
+
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: rgba($purple, 0.8);
+        }
+    }
+}

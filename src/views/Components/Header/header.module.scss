@@ -1,0 +1,10 @@
+@import "../../../assets/styles/vars.scss";
+
+.header {
+    &__inner {
+        height: 112px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
