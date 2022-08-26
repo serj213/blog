@@ -1,4 +1,4 @@
-import { ICartItemSmall } from '../../../types';
+import { ICartItemSmall, ICartState } from '../../../types';
 
 export enum ECartActions {
   GET_CART = 'CART:GET_CART',
@@ -10,7 +10,7 @@ const getCart = () => {
   return { type: ECartActions.GET_CART };
 };
 
-const setCart = (carts: ICartItemSmall[]) => {
+const setCart = (carts: ICartItemSmall) => {
   return { type: ECartActions.SET_CART, payload: carts };
 };
 

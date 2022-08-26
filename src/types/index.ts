@@ -2,9 +2,19 @@ export interface ICartItemSmall {
   id: string;
   img: string;
   name: string;
-  type: string;
+  type: number;
   descript: string;
   date: string;
+}
+
+export interface ICartsResponse {
+  carts: ICartItemSmall[];
+}
+
+export enum ECartStatus {
+  PENDING = 'PENDING',
+  SUCCESS = 'SUCCESS',
+  ERROR = 'ERROR',
 }
 
 export interface ICartItemDetail {
@@ -14,6 +24,6 @@ export interface ICartItemDetail {
 }
 
 export interface ICartState {
-  carts: ICartItemDetail[] | null;
+  carts: ICartItemDetail[] | ICartItemSmall[] | null;
   category: number;
 }
