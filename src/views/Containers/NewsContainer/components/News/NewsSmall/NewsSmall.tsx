@@ -2,6 +2,7 @@ import React from 'react';
 
 import Text from '../../../../../Elements/Text/Text';
 import Heading from '../../../../../Elements/Heading/Heading';
+import { convertTypesName } from '../../../../../../tools/convertTypesName';
 
 import s from './newsSmall.module.scss';
 
@@ -22,7 +23,7 @@ const NewsSmall: React.FC<ICartItemSmall> = ({ img, name, type, descript, date }
             weight: '400',
             marginBottom: '15',
           }}>
-          <p>{type}</p>
+          <p>{convertTypesName(type)}</p>
         </Text>
         <Heading
           modificators={{
@@ -32,7 +33,7 @@ const NewsSmall: React.FC<ICartItemSmall> = ({ img, name, type, descript, date }
             marginBottom: '15',
             uppercase: true,
           }}>
-          <h3>начало карьеры react-разработчика</h3>
+          <h3>{name}</h3>
         </Heading>
         <Text
           modificators={{

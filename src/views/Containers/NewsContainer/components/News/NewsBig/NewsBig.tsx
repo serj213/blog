@@ -2,6 +2,7 @@ import React from 'react';
 import Text from '../../../../../Elements/Text/Text';
 import Heading from '../../../../../Elements/Heading/Heading';
 import { ICartItemSmall } from '../../../../../../types';
+import { convertTypesName } from '../../../../../../tools/convertTypesName';
 
 // import img from '../../../../../../assets/images/newsItem/01.png';
 
@@ -9,11 +10,20 @@ import s from './newsBig.module.scss';
 
 interface INewsBigProps extends ICartItemSmall {
   revers?: boolean;
+  index: number;
 }
 
-const NewsBig: React.FC<INewsBigProps> = ({ revers = false, img, name, descript, date }) => {
+const NewsBig: React.FC<INewsBigProps> = ({
+  revers = false,
+  type,
+  img,
+  name,
+  descript,
+  date,
+  index,
+}) => {
   return (
-    <div className={`${s.newsBig} ${s.newsBig__reverse}`}>
+    <div className={`${s.newsBig} ${revers ? s.newsBig__reverse : null}`}>
       <div className={s.newsBig__image}>
         <img src={img} alt="" />
       </div>
@@ -26,7 +36,7 @@ const NewsBig: React.FC<INewsBigProps> = ({ revers = false, img, name, descript,
             weight: '400',
             marginBottom: '15',
           }}>
-          <p>Карьера</p>
+          <p>{convertTypesName(type)}</p>
         </Text>
 
         <Heading

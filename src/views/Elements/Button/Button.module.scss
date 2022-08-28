@@ -18,4 +18,25 @@
             background-color: rgba($purple, 0.8);
         }
     }
+
+    &__see {
+        display: inline-block;
+        font-family: $play;
+        font-size: 30px;
+        line-height: calc(34 / 30 * 100%);
+        color: $text;
+        background-color: transparent;
+        border: none;
+        transition: color 0.2s linear;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $title;
+            }
+        }
+    }
+
+    &__box {
+        text-align: center;
+    }
 }

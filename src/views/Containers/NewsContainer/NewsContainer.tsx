@@ -4,31 +4,12 @@ import News from './components/News/News';
 import { useNews } from '../../../tools/hooks/useNews';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../redux/carts/actions';
+import { categoryData } from '../../../tools/categoryData';
+import Button from '../../Elements/Button/Button';
+
+import s from './NewsContainer.module.scss';
 
 const NewsContainer: React.FC = () => {
-  const categoryData = [
-    {
-      id: 0,
-      text: 'Общее',
-    },
-    {
-      id: 1,
-      text: 'Карьера',
-    },
-    {
-      id: 2,
-      text: 'Здоровье',
-    },
-    {
-      id: 3,
-      text: 'Жизнь',
-    },
-    {
-      id: 4,
-      text: 'Хобби',
-    },
-  ];
-
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -37,13 +18,13 @@ const NewsContainer: React.FC = () => {
 
   const { carts } = useNews();
 
-  console.log('cats', carts);
-
   return (
-    <>
+    <div className={s.box}>
       <Category category={categoryData} categoryActive={0} changeCategory={() => {}} />
       <News news={carts} />
-    </>
+
+      <Button seeMore>Посмотреть ещё статьи</Button>
+    </div>
   );
 };
 

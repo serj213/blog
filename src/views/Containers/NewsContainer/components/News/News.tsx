@@ -20,11 +20,11 @@ const News: React.FC<INewsProps> = ({ news }) => {
             news.map((item, index) => {
               return index % 4 === 0 ? (
                 <>
-                  <NewsBig {...item} />
+                  <NewsBig key={item.id} {...item} index={index} revers={index % 8 === 0} />
                 </>
               ) : (
                 <>
-                  <NewsSmall {...item} />
+                  <NewsSmall key={item.id} {...item} />
                 </>
               );
             })}
