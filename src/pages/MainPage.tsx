@@ -1,7 +1,13 @@
 import React from 'react';
 
+import NewsContainer from '../views/Containers/NewsContainer/NewsContainer';
+
 const MainPage: React.FC = () => {
-  return <>Главная</>;
+  return (
+    <>
+      <NewsContainer />
+    </>
+  );
 };
 
 export default MainPage;

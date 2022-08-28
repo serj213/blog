@@ -1,0 +1,59 @@
+@import "../../../../../assets/styles/vars.scss";
+
+.category {
+    margin-bottom: 46px;
+    &__inner {
+        display: flex;
+        justify-content: center;
+    }
+    &__list {
+        display: inline-block;
+    }
+
+    &__item {
+        position: relative;
+        display: inline-block;
+        font-family: $play;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: calc(27 / 24 * 100%);
+        color: $title;
+        transition: color 0.2s linear;
+        cursor: pointer;
+
+        &:not(:last-child) {
+            margin-right: 50px;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $text;
+            }
+        }
+    }
+
+    &__item.active {
+        color: $text;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: $purple;
+            bottom: -4px;
+            left: -1px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: calc(71 / 76 * 100%);
+            height: 3px;
+            bottom: -4px;
+            right: -1px;
+            border-radius: 20px;
+            background-color: $purple;
+        }
+    }
+}

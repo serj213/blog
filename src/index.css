@@ -1,15 +1,7 @@
 * {
     box-sizing: border-box;
-}
-
-html,
-body {
-    font-size: 100%;
-    line-height: 100%;
-    font-size: 14px;
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 input,

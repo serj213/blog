@@ -13,7 +13,7 @@ const RootLayout: React.FC<rootLayoutProps> = ({ children }) => {
   return (
     <div className={s.wrapper}>
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
     </div>
   );
