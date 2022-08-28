@@ -1,11 +1,7 @@
 @import "../../../assets/styles/vars.scss";
 
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
+    margin-bottom: 15px;
     &__inner {
         height: 112px;
         display: flex;

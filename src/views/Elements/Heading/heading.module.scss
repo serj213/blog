@@ -1,0 +1,61 @@
+@import "../../../assets/styles/vars.scss";
+
+.heading {
+    line-height: calc(41 / 36 * 100%);
+}
+
+.normal {
+    font-weight: 400;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.small {
+    font-size: 30px;
+}
+
+.middle {
+    font-size: 32px;
+}
+
+.big {
+    font-size: 36px;
+}
+
+.white {
+    color: $white;
+}
+
+.blueDark {
+    color: $title;
+}
+
+.grey {
+    color: $text;
+}
+
+.noto {
+    font-family: $noto;
+}
+
+.play {
+    font-family: $play;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb15 {
+    margin-bottom: 15px;
+}
+
+.mb40 {
+    margin-bottom: 40px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}

@@ -4,5 +4,5 @@ import { appReducers } from './app/reducers';
 
 export const rootReducer = combineReducers({
   app: appReducers,
-  carts: cartReducers,
+  news: cartReducers,
 });

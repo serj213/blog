@@ -1,5 +1,9 @@
 import React from 'react';
 import Category from './components/Category/Category';
+import News from './components/News/News';
+import { useNews } from '../../../tools/hooks/useNews';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../../redux/carts/actions';
 
 const NewsContainer: React.FC = () => {
   const categoryData = [
@@ -25,9 +29,20 @@ const NewsContainer: React.FC = () => {
     },
   ];
 
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(cartActions.getCart());
+  }, []);
+
+  const { carts } = useNews();
+
+  console.log('cats', carts);
+
   return (
     <>
       <Category category={categoryData} categoryActive={0} changeCategory={() => {}} />
+      <News news={carts} />
     </>
   );
 };
