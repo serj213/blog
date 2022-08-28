@@ -20,18 +20,11 @@ const News: React.FC<INewsProps> = ({ news }) => {
             news.map((item, index) => {
               return index % 4 === 0 ? (
                 <>
-                  <NewsBig
-                    id={item.id}
-                    img={item.img}
-                    name={item.name}
-                    type={item.type}
-                    descript={item.descript}
-                    date={item.date}
-                  />
+                  <NewsBig {...item} />
                 </>
               ) : (
                 <>
-                  <NewsSmall />
+                  <NewsSmall {...item} />
                 </>
               );
             })}

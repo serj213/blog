@@ -5,13 +5,13 @@ import Heading from '../../../../../Elements/Heading/Heading';
 
 import s from './newsSmall.module.scss';
 
-import img from '../../../../../../assets/images/newsItem/01.png';
+import { ICartItemSmall } from '../../../../../../types';
 
-const NewsSmall: React.FC = () => {
+const NewsSmall: React.FC<ICartItemSmall> = ({ img, name, type, descript, date }) => {
   return (
     <div className={s.newsSmall}>
       <div className={s.newsSmall__img}>
-        <img src={'/images/01.png'} alt="" />
+        <img src={img} alt="" />
       </div>
       <div className={s.newsSmall__content}>
         <Text
@@ -22,7 +22,7 @@ const NewsSmall: React.FC = () => {
             weight: '400',
             marginBottom: '15',
           }}>
-          <p>Карьера</p>
+          <p>{type}</p>
         </Text>
         <Heading
           modificators={{
@@ -42,10 +42,7 @@ const NewsSmall: React.FC = () => {
             weight: '400',
             marginBottom: '15',
           }}>
-          <p>
-            Адам Голаб, эксперт по React и JS, составил пошаговый учебный план, который поможет вам
-            стать разработчиком с нуля либо...
-          </p>
+          <p>{descript}</p>
         </Text>
         <Text
           modificators={{
@@ -55,7 +52,7 @@ const NewsSmall: React.FC = () => {
             weight: '400',
             marginBottom: '15',
           }}>
-          <p>25/11/2021</p>
+          <p>{date}</p>
         </Text>
       </div>
     </div>
