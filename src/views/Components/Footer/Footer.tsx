@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '../Container/Container';
-import Text from '../../Elements/Text';
+import Text from '../../Elements/Text/Text';
 
 import s from './footer.module.scss';
 
@@ -13,12 +13,31 @@ const Footer: React.FC = () => {
             <Text
               modificators={{
                 weight: '400',
+                size: 'small',
+                color: 'white',
+              }}>
+              <p>автор</p>
+            </Text>
+
+            <Text
+              modificators={{
+                weight: '400',
+                size: 'big',
+                color: 'blue-dark',
+              }}>
+              <p>Сергей КОрнилов</p>
+            </Text>
+          </div>
+
+          <div className={s.footer__column}>
+            <Text
+              modificators={{
+                weight: '700',
+                size: 'middle',
               }}>
               <p>dfdf</p>
             </Text>
           </div>
-
-          <div className={s.footer__column}></div>
 
           <div className={s.footer__column}></div>
         </div>
