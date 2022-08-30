@@ -14,6 +14,7 @@ interface IModificators {
   weight?: THeadingWeight;
   marginBottom?: THeadingMarginBottom;
   uppercase?: boolean;
+  position?: THeadingPosition;
 }
 
 type IHeadingColor = 'white' | 'grey' | 'blue-dark';
@@ -21,6 +22,7 @@ type ITeactFontFamily = 'Noto' | 'play';
 type IHeadingSize = 'small' | 'middle' | 'big';
 type THeadingWeight = '400' | '700';
 type THeadingMarginBottom = '10' | '15' | '40';
+type THeadingPosition = 'left' | 'center' | 'right';
 
 const Heading: React.FC<PropsWithChildren<IHeadingProps>> = (props) => {
   const { children, modificators } = props;
@@ -40,6 +42,9 @@ const Heading: React.FC<PropsWithChildren<IHeadingProps>> = (props) => {
     mb15: modificators?.marginBottom === '15',
     mb40: modificators?.marginBottom === '40',
     uppercase: modificators?.uppercase,
+    left: modificators?.position === 'left',
+    center: modificators?.position === 'center',
+    right: modificators?.position === 'right',
   };
 
   return (

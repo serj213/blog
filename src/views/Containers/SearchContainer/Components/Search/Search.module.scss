@@ -1,0 +1,22 @@
+.search {
+    margin-bottom: 50px;
+    position: relative;
+
+    &__banner {
+        position: absolute;
+        width: 100%;
+        height: 145px;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    &__box {
+        padding-top: 42px;
+    }
+
+    &__inputBox {
+        display: flex;
+        justify-content: center;
+    }
+}

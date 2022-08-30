@@ -1,0 +1,24 @@
+@import "../../../assets/styles/vars.scss";
+
+.input {
+    padding: 14px 55px 14px 30px;
+    box-shadow: 0px 4px 15px rgba(158, 158, 158, 0.3);
+    border-radius: 20px;
+    border: none;
+    font-family: $play;
+    font-size: 20px;
+    line-height: calc(23 / 20 * 100%);
+    color: $text;
+
+    &::placeholder {
+        color: rgba($text, 0.5);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.middle {
+    width: calc(650 / 1215 * 100%);
+}
