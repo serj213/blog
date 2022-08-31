@@ -14,7 +14,13 @@ const setCart = (carts: ICartItemSmall) => {
   return { type: ECartActions.SET_CART, payload: carts };
 };
 
+const changeCategory = (category: number) => ({
+  type: ECartActions.CHANGE_CATEGORY,
+  payload: category,
+});
+
 export const cartActions = {
   getCart,
   setCart,
+  changeCategory,
 };

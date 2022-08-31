@@ -16,11 +16,15 @@ const NewsContainer: React.FC = () => {
     dispatch(cartActions.getCart());
   }, []);
 
-  const { carts } = useNews();
+  const { carts, category } = useNews();
+
+  const changeCategory = (category: number) => {
+    dispatch(cartActions.changeCategory(category));
+  };
 
   return (
     <div className={s.box}>
-      <Category category={categoryData} categoryActive={0} changeCategory={() => {}} />
+      <Category category={categoryData} categoryActive={category} changeCategory={changeCategory} />
       <News news={carts} />
 
       <Button seeMore>Посмотреть ещё статьи</Button>

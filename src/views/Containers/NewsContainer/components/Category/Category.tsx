@@ -24,7 +24,8 @@ const Category: React.FC<ICategoryProps> = ({ category, categoryActive, changeCa
               return (
                 <li
                   className={`${s.category__item} ${item.id === categoryActive && s.active}`}
-                  key={item.id}>
+                  key={item.id}
+                  onClick={() => changeCategory(item.id)}>
                   {item.text}
                 </li>
               );
