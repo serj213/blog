@@ -3,7 +3,7 @@ import Container from '../../../../Components/Container/Container';
 
 import s from './news.module.scss';
 import NewsBig from './NewsBig/NewsBig';
-import { ICartItemSmall } from '../../../../../types';
+import { ICartItemSmall } from '../../../../../types/carts';
 
 import NewsSmall from './NewsSmall/NewsSmall';
 

@@ -1,5 +1,5 @@
 import { ECartActions } from '../actions';
-import { ICartState } from '../../../types';
+import { ICartState } from '../../../types/carts';
 
 const initialState: ICartState = {
   carts: null,

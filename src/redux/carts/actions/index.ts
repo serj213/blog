@@ -1,4 +1,4 @@
-import { ICartItemSmall, ICartState } from '../../../types';
+import { ICartItemSmall, ICartState } from '../../../types/carts';
 
 export enum ECartActions {
   GET_CART = 'CART:GET_CART',

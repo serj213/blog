@@ -1,5 +1,5 @@
 import api from '..';
-import { ICartItemSmall, ICartState, ICartsResponse } from '../../types';
+import { ICartItemSmall, ICartState, ICartsResponse } from '../../types/carts';
 import { getCartsRequest } from '../../tools/asyncMockap';
 
 const getCarts = async () => {

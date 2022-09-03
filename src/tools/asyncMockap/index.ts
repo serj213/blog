@@ -1,4 +1,4 @@
-import { ICartItemSmall, ICartsResponse } from '../../types/index';
+import { ICartItemSmall, ICartsResponse } from '../../types/carts';
 
 const cartsMockap: ICartItemSmall[] = [
   {

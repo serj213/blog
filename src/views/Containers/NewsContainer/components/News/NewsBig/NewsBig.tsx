@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import Text from '../../../../../Elements/Text/Text';
 import Heading from '../../../../../Elements/Heading/Heading';
-import { ICartItemSmall } from '../../../../../../types';
+import { ICartItemSmall } from '../../../../../../types/carts';
 import { convertTypesName } from '../../../../../../tools/convertTypesName';
 
 // import img from '../../../../../../assets/images/newsItem/01.png';
@@ -14,16 +15,16 @@ interface INewsBigProps extends ICartItemSmall {
 }
 
 const NewsBig: React.FC<INewsBigProps> = ({
+  id,
   revers = false,
   type,
   img,
   name,
   descript,
   date,
-  index,
 }) => {
   return (
-    <div className={`${s.newsBig} ${revers ? s.newsBig__reverse : null}`}>
+    <Link to={`/post/${id}`} className={`${s.newsBig} ${revers ? s.newsBig__reverse : null}`}>
       <div className={s.newsBig__image}>
         <img src={img} alt="" />
       </div>
@@ -70,7 +71,7 @@ const NewsBig: React.FC<INewsBigProps> = ({
           <p>{date}</p>
         </Text>
       </div>
-    </div>
+    </Link>
   );
 };
 

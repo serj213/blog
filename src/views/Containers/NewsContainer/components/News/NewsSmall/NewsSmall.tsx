@@ -1,16 +1,16 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 import Text from '../../../../../Elements/Text/Text';
 import Heading from '../../../../../Elements/Heading/Heading';
 import { convertTypesName } from '../../../../../../tools/convertTypesName';
 
 import s from './newsSmall.module.scss';
 
-import { ICartItemSmall } from '../../../../../../types';
+import { ICartItemSmall } from '../../../../../../types/carts';
 
-const NewsSmall: React.FC<ICartItemSmall> = ({ img, name, type, descript, date }) => {
+const NewsSmall: React.FC<ICartItemSmall> = ({ id, img, name, type, descript, date }) => {
   return (
-    <div className={s.newsSmall}>
+    <Link to={`/post/${id}`} className={s.newsSmall}>
       <div className={s.newsSmall__img}>
         <img src={img} alt="" />
       </div>
@@ -56,7 +56,7 @@ const NewsSmall: React.FC<ICartItemSmall> = ({ img, name, type, descript, date }
           <p>{date}</p>
         </Text>
       </div>
-    </div>
+    </Link>
   );
 };
 

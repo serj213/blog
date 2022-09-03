@@ -1,5 +1,5 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
-import { ICartItemSmall } from '../../../types';
+import { ICartItemSmall } from '../../../types/carts';
 import { cartActions, ECartActions } from '../actions/index';
 import { appCarts } from '../../app/actions';
 import { cartApi } from '../../../api/modules/CartApi';
