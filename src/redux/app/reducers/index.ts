@@ -1,29 +1,50 @@
-import { EAppCartsStatus } from '../actions';
+import { EAppStatus } from '../actions';
 import { IAppState } from '../types';
 
 const initialState: IAppState = {
-  cartsStatus: EAppCartsStatus.PENDING,
+  cartsStatus: EAppStatus.CART_PENDING,
+  postDetailStatus: EAppStatus.DETAILS_PENDING
 };
 
 export const appReducers = (state = initialState, action: any) => {
   switch (action.type) {
-    case EAppCartsStatus.PENDING:
+    case EAppStatus.CART_PENDING:
       return {
         ...state,
-        cartStatus: EAppCartsStatus.PENDING,
+        cartsStatus: EAppStatus.CART_PENDING
       };
 
-    case EAppCartsStatus.SUCCESS:
+    case EAppStatus.CART_SUCCESS:
       return {
         ...state,
-        cartStatus: EAppCartsStatus.SUCCESS,
+        cartsStatus: EAppStatus.CART_SUCCESS,
       };
 
-    case EAppCartsStatus.ERROR:
+    case EAppStatus.CART_ERROR:
       return {
         ...state,
-        cartStatus: EAppCartsStatus.ERROR,
+        cartsStatus: EAppStatus.CART_ERROR,
       };
+
+    case EAppStatus.DETAILS_PENDING:
+      return {
+        ...state,
+        postDetailStatus: EAppStatus.DETAILS_PENDING
+      }
+
+    case EAppStatus.DETAILS_SUCCESS:
+      return {
+        ...state,
+        postDetailStatus: EAppStatus.DETAILS_SUCCESS
+      }
+
+
+    case EAppStatus.DETAILS_ERROR:
+      return {
+        ...state,
+        postDetailStatus: EAppStatus.DETAILS_ERROR
+      }
+
 
     default:
       return state;

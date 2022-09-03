@@ -1,4 +1,5 @@
 import { ICartItemSmall, ICartsResponse } from '../../types/carts';
+import { IDetailsArticle } from '../../types/postDetail';
 
 const cartsMockap: ICartItemSmall[] = [
   {
@@ -181,9 +182,36 @@ const cartsMockap: ICartItemSmall[] = [
   },
 ];
 
+const postArticle: IDetailsArticle = {
+  author: 'Корнилов Сергей',
+  title: 'Начало карьеры react-разработчика',
+  datePublication: '25.11.2022',
+  views: 233,
+  imgMain: 'https://placepic.ru/wp-content/uploads/2021/01/FF3mH8WjNnC2WlfFnSX34PFQycxOoEx0ViBmDS867A1Qs4DKSXt3TF2MYn0vLX7GiqgYZDBv9IU7JAx6FA3wqAAb7QWJ9yUh8QwVhux99aPsSJ7HTqAEaFt0IRIuOqsSG7CN9hQ.jpg',
+  tags: [
+    {
+      id: 't0',
+      text: 'разработка'
+    },
+    {
+      id: 't1',
+      text: 'react'
+    }
+  ],
+  category: 1,
+  markdown: `Несмотря на то что пост написан в этом году, изучить всю предложенную программу за оставшиеся месяцы вы, вероятно, не успеете. Поэтому карту разработчика можно смело брать с собой в год следующий.  \n Адам Голаб, эксперт по React и JS, составил пошаговый учебный план, который поможет вам стать разработчиком с нуля либо укажет направление для дальнейшего повышения навыков в профессии.\nПлан Адама представляет собой список основных пунктов, которые вам нужно изучить самостоятельно. Мы добавили описание, а в некоторых сложных моментах указали ссылки на дополнительные справочные материалы, с помощью которых вы получите ответ на вопрос: «Что я должен узнать как React-разработчик?».\n План Адама представляет собой список основных пунктов, которые вам нужно изучить самостоятельно. Мы добавили описание, а в некоторых сложных моментах указали ссылки на дополнительные справочные материалы, с помощью которых вы получите ответ на вопрос: «Что я должен узнать как React-разработчик?». \n ![](https://miro.medium.com/max/1400/1*Az-gnX8CWEv3pBlwlw1sfg.png) \n **1. Основы**\n * HTML \n -Изучите основы HTML`
+}
+
 export const getCartsRequest = async (timeout: number) =>
   new Promise((res, rej) => {
     setTimeout(() => {
       res(cartsMockap);
     }, timeout);
   });
+
+
+export const postDetailRequest = async (timeout: number) => new Promise((res, rej) => {
+  setTimeout(() => {
+    res(postArticle)
+  }, timeout)
+})

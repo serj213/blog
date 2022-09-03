@@ -1,5 +1,5 @@
 export interface IDetailsState {
-    article: IDetailsArticle[] | null
+    article: IDetailsArticle | null
 }
 
 export interface IDetailsArticle {
