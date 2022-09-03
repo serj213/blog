@@ -8,6 +8,8 @@ import s from './newsSmall.module.scss';
 
 import { ICartItemSmall } from '../../../../../../types/carts';
 
+
+
 const NewsSmall: React.FC<ICartItemSmall> = ({ id, img, name, type, descript, date }) => {
   return (
     <Link to={`/post/${id}`} className={s.newsSmall}>

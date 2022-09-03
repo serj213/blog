@@ -12,7 +12,7 @@ import s from './newsBig.module.scss';
 interface INewsBigProps extends ICartItemSmall {
   revers?: boolean;
   index: number;
-  openDetails: any
+
 }
 
 const NewsBig: React.FC<INewsBigProps> = ({
@@ -23,10 +23,10 @@ const NewsBig: React.FC<INewsBigProps> = ({
   name,
   descript,
   date,
-  openDetails
+
 }) => {
   return (
-    <Link to={`/post/${id}`} className={`${s.newsBig} ${revers ? s.newsBig__reverse : null}`} onClick={openDetails}>
+    <Link to={`/post/${id}`} className={`${s.newsBig} ${revers ? s.newsBig__reverse : null}`}>
       <div className={s.newsBig__image}>
         <img src={img} alt="" />
       </div>

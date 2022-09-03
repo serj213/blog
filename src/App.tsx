@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.scss';
-import RootLayout from './views/Components/RootLayout/RootLayout';
+import RootLayout from './views/Components/Layouts/RootLayout/RootLayout';
 import MainPage from './pages/MainPage';
 import PostDetails from './pages/PostDetails';
 

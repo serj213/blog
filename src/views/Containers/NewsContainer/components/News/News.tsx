@@ -9,10 +9,9 @@ import NewsSmall from './NewsSmall/NewsSmall';
 
 interface INewsProps {
   news: ICartItemSmall[] | null;
-  openDetails: any
 }
 
-const News: React.FC<INewsProps> = ({ news, openDetails }) => {
+const News: React.FC<INewsProps> = ({ news }) => {
   return (
     <div className={s.news}>
       <Container>
@@ -21,7 +20,7 @@ const News: React.FC<INewsProps> = ({ news, openDetails }) => {
             news.map((item, index) => {
               return index % 4 === 0 ? (
                 <>
-                  <NewsBig key={item.id} {...item} index={index} revers={index % 8 === 0} openDetails={() => openDetails(item.id)} />
+                  <NewsBig key={item.id} {...item} index={index} revers={index % 8 === 0} />
                 </>
               ) : (
                 <>
