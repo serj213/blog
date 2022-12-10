@@ -21,7 +21,7 @@ type IHeadingColor = 'white' | 'grey' | 'blue-dark';
 type ITeactFontFamily = 'Noto' | 'play';
 type IHeadingSize = 'small' | 'middle' | 'big';
 type THeadingWeight = '400' | '700';
-type THeadingMarginBottom = '10' | '15' | '40';
+type THeadingMarginBottom = '10' | '15' | '20' | '40';
 type THeadingPosition = 'left' | 'center' | 'right';
 
 const Heading: React.FC<PropsWithChildren<IHeadingProps>> = (props) => {
@@ -39,6 +39,7 @@ const Heading: React.FC<PropsWithChildren<IHeadingProps>> = (props) => {
     noto: modificators?.fontFamily === 'Noto',
     play: modificators?.fontFamily === 'play',
     mb10: modificators?.marginBottom === '10',
+    mb20:modificators?.marginBottom === '20',
     mb15: modificators?.marginBottom === '15',
     mb40: modificators?.marginBottom === '40',
     uppercase: modificators?.uppercase,

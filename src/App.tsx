@@ -4,6 +4,7 @@ import './App.scss';
 import RootLayout from './views/Components/Layouts/RootLayout/RootLayout';
 import MainPage from './pages/MainPage';
 import PostDetails from './pages/PostDetails';
+import AuthPage from './pages/AuthPage';
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/post/:id' element={<PostDetails />} />
+          <Route path='/auth' element={<AuthPage />} />
         </Routes>
 
       </RootLayout>

@@ -15,13 +15,15 @@ interface IModificators {
   size?: ITextSize;
   weight?: TTextWeight;
   marginBottom?: TTextMarginBottom;
+  positions?:TTextPostion
 }
 
 type ITextColor = 'white' | 'grey' | 'blue-dark';
 type ITeactFontFamily = 'Noto' | 'play';
-type ITextSize = 'small' | 'middle' | 'big';
+type ITextSize = 'ultra-small' | 'small' | 'middle' | 'big';
 type TTextWeight = '400' | '700';
 type TTextMarginBottom = '10' | '15' | '40';
+type TTextPostion = 'left' | 'center' | 'right'
 
 const Text: React.FC<PropsWithChildren<ITextProps>> = (props) => {
   const { children, modificators } = props;
@@ -29,6 +31,7 @@ const Text: React.FC<PropsWithChildren<ITextProps>> = (props) => {
   const textModifications = {
     normal: modificators?.weight === '400',
     bold: modificators?.weight === '700',
+    ultraSmall:modificators?.size === 'ultra-small',
     small: modificators?.size === 'small',
     middle: modificators?.size === 'middle',
     big: modificators?.size === 'big',
@@ -40,6 +43,9 @@ const Text: React.FC<PropsWithChildren<ITextProps>> = (props) => {
     mb10: modificators?.marginBottom === '10',
     mb15: modificators?.marginBottom === '15',
     mb40: modificators?.marginBottom === '40',
+    left:modificators?.positions === 'left',
+    center:modificators?.positions === 'center',
+    right:modificators?.positions === 'right',
   };
 
   return (

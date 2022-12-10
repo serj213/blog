@@ -11,6 +11,9 @@ export interface IAuthReq {
   password: string;
 }
 
-export interface IAuthFormData {
+export type IAuthTypeScreen = 'login' | 'registr';
+
+export interface IAuthState {
   formData: IAuthReq | null;
+  typeAuth: IAuthTypeScreen;
 }
