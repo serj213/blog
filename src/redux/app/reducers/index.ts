@@ -3,7 +3,8 @@ import { IAppState } from '../types';
 
 const initialState: IAppState = {
   cartsStatus: EAppStatus.CART_PENDING,
-  postDetailStatus: EAppStatus.DETAILS_PENDING
+  postDetailStatus: EAppStatus.DETAILS_PENDING,
+  authStatus: EAppStatus.AUTH_PENDING,
 };
 
 export const appReducers = (state = initialState, action: any) => {
@@ -11,7 +12,7 @@ export const appReducers = (state = initialState, action: any) => {
     case EAppStatus.CART_PENDING:
       return {
         ...state,
-        cartsStatus: EAppStatus.CART_PENDING
+        cartsStatus: EAppStatus.CART_PENDING,
       };
 
     case EAppStatus.CART_SUCCESS:
@@ -29,22 +30,38 @@ export const appReducers = (state = initialState, action: any) => {
     case EAppStatus.DETAILS_PENDING:
       return {
         ...state,
-        postDetailStatus: EAppStatus.DETAILS_PENDING
-      }
+        postDetailStatus: EAppStatus.DETAILS_PENDING,
+      };
 
     case EAppStatus.DETAILS_SUCCESS:
       return {
         ...state,
-        postDetailStatus: EAppStatus.DETAILS_SUCCESS
-      }
-
+        postDetailStatus: EAppStatus.DETAILS_SUCCESS,
+      };
 
     case EAppStatus.DETAILS_ERROR:
       return {
         ...state,
-        postDetailStatus: EAppStatus.DETAILS_ERROR
-      }
+        postDetailStatus: EAppStatus.DETAILS_ERROR,
+      };
 
+    case EAppStatus.AUTH_PENDING:
+      return {
+        ...state,
+        authStatus: EAppStatus.AUTH_PENDING,
+      };
+
+    case EAppStatus.AUTH_SUCCESS:
+      return {
+        ...state,
+        authStatus: EAppStatus.AUTH_SUCCESS,
+      };
+
+    case EAppStatus.AUTH_ERROR:
+      return {
+        ...state,
+        authStatus: EAppStatus.AUTH_ERROR,
+      };
 
     default:
       return state;
