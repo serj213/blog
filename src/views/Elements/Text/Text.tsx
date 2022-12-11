@@ -18,7 +18,7 @@ interface IModificators {
   positions?:TTextPostion
 }
 
-type ITextColor = 'white' | 'grey' | 'blue-dark';
+type ITextColor = 'white' | 'grey' | 'blue-dark' | 'text-second';
 type ITeactFontFamily = 'Noto' | 'play';
 type ITextSize = 'ultra-small' | 'small' | 'middle' | 'big';
 type TTextWeight = '400' | '700';
@@ -38,6 +38,7 @@ const Text: React.FC<PropsWithChildren<ITextProps>> = (props) => {
     white: modificators?.color === 'white',
     blueDark: modificators?.color === 'blue-dark',
     grey: modificators?.color === 'grey',
+    textSecondColor:modificators?.color === 'text-second',
     noto: modificators?.fontFamily === 'Noto',
     play: modificators?.fontFamily === 'play',
     mb10: modificators?.marginBottom === '10',

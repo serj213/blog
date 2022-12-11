@@ -39,4 +39,9 @@
     &__box {
         text-align: center;
     }
+
+    &:disabled{
+        opacity: .5;
+        pointer-events: none;
+    }
 }

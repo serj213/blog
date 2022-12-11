@@ -13,11 +13,11 @@ const Button: React.FC<ButtonProps> = ({ children, onClick, seeMore = false, dis
   if (seeMore) {
     return (
       <div className={s.button__box}>
-        <button onClick={onClick} className={s.button__see} disabled={disable}>{children}</button>
+        <button  onClick={onClick} className={s.button__see}>{children}</button>
       </div>
     );
   }
-  return <button className={s.button}>{children}</button>;
+  return <button  onClick={onClick} className={s.button} disabled={disable}>{children}</button>;
 };
 
 export default Button;
