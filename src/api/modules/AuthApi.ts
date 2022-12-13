@@ -11,12 +11,8 @@ const registration = async (data: IAuthReq) => {
 };
 
 const login = async (data: Omit<IAuthReq, 'name'>) => {
-  try {
-    const response: IAuthRes = await api.post<Omit<IAuthReq, 'name'>, Promise<IAuthRes>>('/login', data);
-    return response;
-  } catch (error) {
-    console.log('api Ошибка при  логировании ', error);
-  }
+  const response: IAuthRes = await api.post<Omit<IAuthReq, 'name'>, Promise<IAuthRes>>('/user/login', data);
+  return response;
 };
 
 export const AuthApi = {

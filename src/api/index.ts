@@ -1,7 +1,10 @@
 import axios from 'axios';
+import { setupInterceptorsTo } from './Interceptors';
 
-const api = axios.create({
-  url: 'https://localhost:5000/api',
-});
+const api = setupInterceptorsTo(
+  axios.create({
+    baseURL: 'http://localhost:8080/api',
+  }),
+);
 
 export default api;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IAuthReq, IAuthTypeScreen } from '../../../../../types/auth';
 import Heading from '../../../../Elements/Heading/Heading';
 import Text from '../../../../Elements/Text/Text';
@@ -10,10 +10,10 @@ import { validateEmail, validateName, validatePassword } from '../../../../../to
 
 interface IModalAuthProps {
   typeScreen: IAuthTypeScreen;
-  // submit:(data:IAuthReq) => void
+  submit:(data:IAuthReq) => void
 }
 
-export const ModalAuth: React.FC<IModalAuthProps> = ({ typeScreen }) => {
+export const ModalAuth: React.FC<IModalAuthProps> = ({ typeScreen , submit}) => {
   const {
     register,
     handleSubmit,
@@ -31,11 +31,14 @@ export const ModalAuth: React.FC<IModalAuthProps> = ({ typeScreen }) => {
     'Зарегистрируйте SE_KF Аккаунт, чтобы вступить в сообщество, где можно учиться, делиться опытом и всегда быть в курсе того, что происходит в мире.';
   const textLogin = 'SE_KF уже заждался тебя! У нас накопилось много новых статей. Может и у тебя есть чем поделиться?';
 
-  const onSubmit = (data: IAuthReq) => {
-    // submit(data)
+  const onSubmit = (data: IAuthReq) => {    
+    submit(data)
   };
 
-  console.log('checkError ', errors);
+  useEffect(() => {
+      console.log('errors ', errors);
+      
+  },[errors])
 
   return (
     <div className={s.wrapper}>
@@ -87,6 +90,7 @@ export const ModalAuth: React.FC<IModalAuthProps> = ({ typeScreen }) => {
             </div>
             <div className={s.inputBox}>
               <input
+                type='password'
                 className={`${errors.password && s.error}`}
                 {...register('password', { validate: validatePassword })}
                 placeholder="Введите пароль"
@@ -109,7 +113,7 @@ export const ModalAuth: React.FC<IModalAuthProps> = ({ typeScreen }) => {
           </Text>
 
           <div className={s.btnBox}>
-            <Button disable={!isValid}>{typeScreen === 'login' ? 'Войти' : 'Зарегистрироваться'}</Button>
+            <Button fullWidth disable={!isValid}>{typeScreen === 'login' ? 'Войти' : 'Зарегистрироваться'}</Button>
           </div>
         </form>
       </div>

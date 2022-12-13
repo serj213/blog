@@ -5,6 +5,7 @@ const initialState: IAppState = {
   cartsStatus: EAppStatus.CART_PENDING,
   postDetailStatus: EAppStatus.DETAILS_PENDING,
   authStatus: EAppStatus.AUTH_PENDING,
+  profileStatus: EAppStatus.PROFILE_PENDING,
 };
 
 export const appReducers = (state = initialState, action: any) => {
@@ -61,6 +62,24 @@ export const appReducers = (state = initialState, action: any) => {
       return {
         ...state,
         authStatus: EAppStatus.AUTH_ERROR,
+      };
+
+    case EAppStatus.PROFILE_PENDING:
+      return {
+        ...state,
+        profileStatus: EAppStatus.PROFILE_PENDING,
+      };
+
+    case EAppStatus.PROFILE_SUCCESS:
+      return {
+        ...state,
+        profileStatus: EAppStatus.PROFILE_SUCCESS,
+      };
+
+    case EAppStatus.PROFILE_ERROR:
+      return {
+        ...state,
+        profileStatus: EAppStatus.PROFILE_ERROR,
       };
 
     default:

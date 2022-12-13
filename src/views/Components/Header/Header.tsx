@@ -2,10 +2,12 @@ import React from 'react';
 
 import Container from '../Container/Container';
 import Button from '../../Elements/Button/Button';
+import { Link } from 'react-router-dom';
 
 import s from './header.module.scss';
 
 import logo from '../../../assets/images/header/logo.svg';
+import { ERoutes } from '../../../config/routes';
 
 const Header: React.FC = () => {
   return (
@@ -16,7 +18,7 @@ const Header: React.FC = () => {
             <img src={logo} alt="" />
           </a>
 
-          <Button>Связь со мной</Button>
+          <Button href={ERoutes.auth}>Войти</Button>
         </div>
       </Container>
     </header>

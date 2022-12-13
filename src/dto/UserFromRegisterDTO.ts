@@ -8,9 +8,11 @@ class UserFromRegister {
   avatar: string;
 
   constructor(res: IAuthRes) {
-    this.id = res.id;
-    this.name = res.name;
-    this.email = res.email;
+    console.log('res ', res);
+
+    this.id = res.user.id;
+    this.name = res.user.name;
+    this.email = res.user.email;
     this.avatar = './images/no-avatar.jpeg';
   }
 
