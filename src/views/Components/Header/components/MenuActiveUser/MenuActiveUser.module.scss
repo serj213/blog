@@ -1,0 +1,48 @@
+@import './src/assets/styles/vars.scss';
+
+.menuActiveUser {
+  position: relative;
+
+  &__avatar {
+    flex: 0 0 55px;
+    height: 55px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 15px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__list {
+    position: absolute;
+    width: 100%;
+    min-width: 181px;
+    left: 0;
+    top: 78px;
+    background-color: $white;
+    padding: 17px 20px;
+    box-shadow: -2px 2px 4px rgba(158, 158, 158, 0.25);
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  li {
+    a,
+    button {
+        display: block;
+      font-size: 20px;
+      line-height: 23px;
+      color: $title;
+      background-color: transparent;
+    }
+
+    a{
+        margin-bottom: 15px;
+    }
+
+    button {
+      border: none;
+    }
+  }
+}

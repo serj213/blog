@@ -1,8 +1,11 @@
+@import './src/assets/styles/vars.scss';
+
 .wrapper {
     overflow: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: $bg;
 
     main {
         flex: 1 1 auto;

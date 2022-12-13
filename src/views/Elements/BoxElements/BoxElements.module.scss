@@ -1,0 +1,38 @@
+.flex {
+  display: flex;
+}
+
+.leftHorizont {
+  justify-content: flex-start;
+}
+
+.centerHorizont {
+  justify-content: center;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}
+
+.rightHorizont {
+  justify-content: flex-end;
+}
+.startVertical {
+  align-items: flex-start;
+}
+
+.centerVertical {
+  align-items: center;
+}
+
+.endVertical {
+  align-items: flex-end;
+}
+
+.cursorPointer{
+  cursor: pointer;
+}
