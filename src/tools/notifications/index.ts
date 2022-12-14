@@ -5,7 +5,7 @@ const notifications = (message: string, description?: string) => {
   const config: ArgsProps = {
     message,
     description,
-    duration: 2,
+    duration: 5,
   };
   return {
     success: () => notification.success(config),

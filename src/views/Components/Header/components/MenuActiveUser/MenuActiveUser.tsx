@@ -7,9 +7,10 @@ import s from './MenuActiveUser.module.scss';
 interface IMenuActiveUser {
   userName: string;
   avatar: string;
+  logout:() => void
 }
 
-const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar }) => {
+const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar, logout }) => {
   const [menuProfile, setMenuProfile] = useState(false);
   const menuRef = useRef(null);
 
@@ -43,7 +44,7 @@ const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar }) => {
             <Link to={'/profile'}>Профиль</Link>
           </li>
           <li>
-            <button>Выйти</button>
+            <button onClick={logout} >Выйти</button>
           </li>
         </ul>
       )}

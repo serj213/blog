@@ -12,6 +12,11 @@ export const userReducers = handleActions<IUserState, any>(
       ...state,
       user: action.payload,
     }),
+
+    [EUserActions.RESET_PROFILE]: (state, action) => ({
+      ...state,
+      user: null,
+    }),
   },
   initialState,
 );

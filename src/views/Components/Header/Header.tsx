@@ -1,40 +1,54 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Container from '../Container/Container';
 import Button from '../../Elements/Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import s from './header.module.scss';
 
 import logo from '../../../assets/images/header/logo.svg';
-import Text from '../../Elements/Text/Text';
-import { ERoutes } from '../../../config/routes';
 import { useProfile } from '../../../tools/hooks/useProfile';
-import BoxElements from '../../Elements/BoxElements/BoxElements';
 import MenuActiveUser from './components/MenuActiveUser/MenuActiveUser';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../../redux/auth/actions';
+import { ERoutes } from '../../../config/routes';
+import { userActions } from '../../../redux/profile/actions';
 
 const Header: React.FC = () => {
   const user = useProfile();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const onSwitchAuth = () => {
+    dispatch(authActions.setAuthType('login'));
+    if (location.pathname !== ERoutes.auth) {
+      navigate(ERoutes.auth);
+    }
+  };
+
+  const onLogoutHandler = () => {
+    dispatch(userActions.logout());
+  };
 
   return (
     <header className={s.header}>
       <Container>
         <div className={s.header__inner}>
-          <a className={s.header__logo}>
+          <Link to={ERoutes.main} className={s.header__logo}>
             <img src={logo} alt="" />
-          </a>
+          </Link>
 
           {user !== null ? (
             <>
-           
-            <MenuActiveUser avatar={user.avatar ? user.avatar : ''} userName={user.name ? user.name : ''}/>
-            
+              <MenuActiveUser
+                logout={onLogoutHandler}
+                avatar={user.avatar ? user.avatar : ''}
+                userName={user.name ? user.name : ''}
+              />
             </>
-              
-            
-            
           ) : (
-            <Button href={ERoutes.auth}>Войти</Button>
+            <Button onClick={onSwitchAuth}>Войти</Button>
           )}
         </div>
       </Container>

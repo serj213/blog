@@ -1,7 +1,9 @@
 import { AxiosError } from 'axios';
+import Cookies from 'js-cookie';
 import { takeLatest, put, call } from 'redux-saga/effects';
 import { IApiError } from '../../../api/apiError';
 import { profileApi } from '../../../api/modules/ProfileApi';
+import { config } from '../../../config';
 import UserFromRegister from '../../../dto/UserFromRegisterDTO';
 import notifications from '../../../tools/notifications';
 import { IAuthRes } from '../../../types/auth';
@@ -11,6 +13,7 @@ import { EUserActions, userActions } from '../actions';
 
 export function* profileSagas() {
   yield takeLatest(EUserActions.GET_ME, executeGetMe);
+  yield takeLatest(EUserActions.LOGOUT, executeLogout);
 }
 
 function* executeGetMe() {
@@ -25,5 +28,18 @@ function* executeGetMe() {
     const error = e as AxiosError;
     const errorMessage = error.response?.data as IApiError;
     yield put(profileStatus.error());
+  }
+}
+
+function* executeLogout() {
+  try {
+    yield put(profileStatus.pending());
+    yield put(userActions.resetProfile());
+    Cookies.remove(config.userToken);
+    yield put(profileStatus.success());
+  } catch (error) {
+    console.log('profile logout error ', error);
+    yield put(profileStatus.error());
+    notifications('Произошла ошибка').error();
   }
 }
