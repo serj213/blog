@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { IUserData } from '../../../../../types/profile';
 import BoxElements from '../../../../Elements/BoxElements/BoxElements';
 
 import s from './MenuActiveUser.module.scss';
@@ -7,10 +8,11 @@ import s from './MenuActiveUser.module.scss';
 interface IMenuActiveUser {
   userName: string;
   avatar: string;
-  logout:() => void
+  logout: () => void;
+  user: IUserData;
 }
 
-const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar, logout }) => {
+const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar, logout, user }) => {
   const [menuProfile, setMenuProfile] = useState(false);
   const menuRef = useRef(null);
 
@@ -26,12 +28,12 @@ const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar, logout })
   }, []);
 
   const visibleMenuList = () => {
-    setMenuProfile(true)
-  }
+    setMenuProfile(true);
+  };
 
   return (
     <div ref={menuRef} className={s.menuActiveUser}>
-      <BoxElements click={visibleMenuList} modificators={{ flex: true, alignItems: 'center', cursorPointer:true }}>
+      <BoxElements click={visibleMenuList} modificators={{ flex: true, alignItems: 'center', cursorPointer: true }}>
         <div>{userName}</div>
         <div className={s.menuActiveUser__avatar}>
           <img src={avatar} alt="" />
@@ -41,10 +43,10 @@ const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar, logout })
       {menuProfile && (
         <ul className={s.menuActiveUser__list}>
           <li>
-            <Link to={'/profile'}>Профиль</Link>
+            <Link to={`profile/${user.id}`}>Профиль</Link>
           </li>
           <li>
-            <button onClick={logout} >Выйти</button>
+            <button onClick={logout}>Выйти</button>
           </li>
         </ul>
       )}

@@ -26,6 +26,7 @@ function* executeRegistration(data: Action<IAuthReq>) {
     if (typeof window !== 'undefined') {
       Cookies.set(config.userToken, response.token);
     }
+
     yield put(userActions.setProfile(user));
     yield put(authStatus.success());
     yield notifications('Вы успешно зарегистрировали').success();
@@ -40,10 +41,13 @@ function* executeRegistration(data: Action<IAuthReq>) {
 
 function* executeLogin(data: Action<IAuthReqLogin>) {
   try {
+    console.log('login ', data.payload);
+
     yield put(authStatus.pending());
     const response: IAuthRes = yield call(AuthApi.login, data.payload);
     Cookies.set(config.userToken, response.token);
     const user: IUserData = yield new UserFromRegister(response).toJSON();
+    console.log('user ', user);
     yield put(userActions.setProfile(user));
     yield data.payload.redirect();
     yield put(authStatus.success());

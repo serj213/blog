@@ -23,7 +23,7 @@ const AuthGuard: React.FC<IAuthGuardProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (location.pathname === ERoutes.auth && user) {
+    if ( !token) {
       navigate(ERoutes.main);
       window.scrollTo({ top: 0 });
     }

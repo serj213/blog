@@ -6,14 +6,14 @@ class UserFromRegister {
   name: string;
   email: string;
   avatar: string;
+  aboutMe: string;
 
-  constructor(res: IAuthRes) {
-    console.log('res ', res);
-
+  constructor(res: Omit<IAuthRes, 'token'>) {
     this.id = res.user.id;
     this.name = res.user.name;
     this.email = res.user.email;
-    this.avatar = './images/no-avatar.jpeg';
+    this.avatar = res.user.avatar ? res.user.avatar : '/images/no-avatar.jpeg';
+    this.aboutMe = res.user.aboutMe !== null ? res.user.aboutMe : '';
   }
 
   toJSON(): IUserData {
@@ -22,6 +22,7 @@ class UserFromRegister {
       name: this.name,
       email: this.email,
       avatar: this.avatar,
+      aboutMe: this.aboutMe,
     };
   }
 }

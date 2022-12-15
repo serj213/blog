@@ -13,9 +13,9 @@ const NewsContainer: React.FC = () => {
   const dispatch = useDispatch();
   const { carts, category } = useNews();
 
-  React.useEffect(() => {
-    dispatch(cartActions.getCart());
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(cartActions.getCart());
+  // }, []);
 
 
 

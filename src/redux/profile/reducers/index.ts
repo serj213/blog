@@ -17,6 +17,13 @@ export const userReducers = handleActions<IUserState, any>(
       ...state,
       user: null,
     }),
+
+    [EUserActions.SET_EDIT_PROFILE]: (state, action) => {
+      return {
+        ...state,
+        user: action.payload,
+      };
+    },
   },
   initialState,
 );

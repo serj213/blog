@@ -1,0 +1,83 @@
+@import './src/assets/styles/vars.scss';
+
+.mainInfo {
+  width: 100%;
+  box-shadow: 0px 4px 27px rgba(158, 158, 158, 0.25);
+  border-radius: 20px;
+  background-color: $white;
+  padding: 40px;
+
+  &__avatar {
+    flex: 0 0 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 30px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+
+  &__fieldsMain{
+    width: calc(620 / 390 * 100%);
+    &>div{
+        &:nth-child(1){
+            margin-bottom: 12px;
+        }
+    }
+  }
+
+  &__field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    label{
+        font-size: 12px;
+        line-height: 100%;
+        margin-bottom: 5px;
+        color:$title;
+    }
+
+    input,
+    p,
+    textarea{
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 10px;
+        border:1px solid $text;
+    }
+
+    textarea{
+        resize: none;
+        height: 200px;
+    }
+  }
+
+  &__middle{
+    padding-top: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+    .mainInfo{
+        &__field{
+            width: 100%;
+        }
+    }
+  }
+
+  &__delete{
+    background-color: transparent;
+    font-size: 20px;
+    line-height: 23px;
+    color:$title;
+    border: none;
+    font-family: $play;
+    transition: color .2s linear;
+    &:hover{
+      color:red;
+    }
+  }
+}

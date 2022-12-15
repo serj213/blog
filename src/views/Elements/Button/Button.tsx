@@ -9,10 +9,13 @@ interface ButtonProps {
   seeMore?: boolean;
   disable?: boolean;
   href?: string;
-  fullWidth?:boolean
+  fullWidth?: boolean;
+  type?: IButtonType;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, onClick, seeMore = false, disable = false, href, fullWidth }) => {
+type IButtonType = 'submit' | 'button';
+
+const Button: React.FC<ButtonProps> = ({type = 'button', children, onClick, seeMore = false, disable = false, href, fullWidth }) => {
   if (seeMore) {
     return (
       <div className={s.button__box}>

@@ -45,6 +45,7 @@ const Header: React.FC = () => {
                 logout={onLogoutHandler}
                 avatar={user.avatar ? user.avatar : ''}
                 userName={user.name ? user.name : ''}
+                user={user}
               />
             </>
           ) : (
