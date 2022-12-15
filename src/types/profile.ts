@@ -15,3 +15,11 @@ export interface IUserEditData extends Omit<IUserData, 'email' | 'avatar'> {}
 export interface IUserEditRes {
   data: IUserData;
 }
+
+export interface IUserDelete {
+  id: string;
+}
+
+export interface IUserSuccess {
+  message: string;
+}

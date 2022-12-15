@@ -11,14 +11,20 @@ const ProfileContainer: React.FC = () => {
   const user = useProfile() as IUserData;
   const dispatch = useDispatch();
 
+
   const onEditHandler = (data:IUserEditData) => {    
     dispatch(userActions.editProfile(data))
+  }
+
+  const onDeleteHandler = () => {
+    dispatch(userActions.deleteProfile({id:user.id}))
+
   }
 
   return (
     <Container>
       <GridSeconds>
-        <>{user !== null && <MainInfo editHandler={onEditHandler} user={user} />}</>
+        <>{user !== null && <MainInfo deleteHandler={onDeleteHandler} editHandler={onEditHandler} user={user} />}</>
       </GridSeconds>
     </Container>
   );

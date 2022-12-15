@@ -1,5 +1,5 @@
 import { IAuthRes } from '../../types/auth';
-import { IUserData, IUserEditData, IUserEditRes } from '../../types/profile';
+import { IUserData, IUserDelete, IUserEditData, IUserEditRes } from '../../types/profile';
 import api from '../index';
 
 const getMe = async () => {
@@ -16,7 +16,14 @@ const edit = async (data: IUserEditData) => {
   return response;
 };
 
+const deleteProfile = async (data: IUserDelete) => {
+  const response = await api.delete(`profile/${data.id}`);
+
+  return response.data;
+};
+
 export const profileApi = {
   getMe,
   edit,
+  deleteProfile,
 };

@@ -8,7 +8,7 @@ import { config } from '../../../config';
 import UserFromRegister from '../../../dto/UserFromRegisterDTO';
 import notifications from '../../../tools/notifications';
 import { IAuthRes } from '../../../types/auth';
-import { IUserData, IUserEditData, IUserEditRes } from '../../../types/profile';
+import { IUserData, IUserDelete, IUserEditData } from '../../../types/profile';
 import { profileStatus } from '../../app/actions';
 import { EUserActions, userActions } from '../actions';
 
@@ -16,6 +16,7 @@ export function* profileSagas() {
   yield takeLatest(EUserActions.GET_ME, executeGetMe);
   yield takeLatest(EUserActions.LOGOUT, executeLogout);
   yield takeLatest(EUserActions.EDIT_PROFILE, executeEditProfile);
+  yield takeLatest(EUserActions.DELETE_PROFILE, executeDeleteProfile);
 }
 
 function* executeGetMe() {
@@ -56,7 +57,22 @@ function* executeEditProfile(data: Action<IUserEditData>) {
     yield put(profileStatus.success());
     notifications('Ваши данные успешно изменены').success();
   } catch (error) {
-    console.log('profile logout error ', error);
+    console.log('profile edit error ', error);
+    yield put(profileStatus.error());
+    notifications('Произошла ошибка').error();
+  }
+}
+
+function* executeDeleteProfile(data: Action<IUserDelete>) {
+  try {
+    yield put(profileStatus.pending());
+    yield call(profileApi.deleteProfile, data.payload);
+    Cookies.remove(config.userToken);
+    yield put(userActions.resetProfile());
+    yield put(profileStatus.success());
+    notifications('Пользователь был успешно удален').success();
+  } catch (error) {
+    console.log('profile delete error ', error);
     yield put(profileStatus.error());
     notifications('Произошла ошибка').error();
   }

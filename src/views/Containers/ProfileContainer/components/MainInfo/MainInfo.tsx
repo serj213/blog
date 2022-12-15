@@ -9,14 +9,14 @@ import s from './MainInfo.module.scss';
 interface IMainInfoProps {
   user: IUserData;
   editHandler:(data:IUserEditData) => void
+  deleteHandler:() => void
 }
 
-const MainInfo: React.FC<IMainInfoProps> = ({ user, editHandler }) => {
+const MainInfo: React.FC<IMainInfoProps> = ({ user, editHandler, deleteHandler }) => {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    watch
   } = useForm({
     defaultValues: {
       name: user.name,
@@ -59,7 +59,7 @@ const MainInfo: React.FC<IMainInfoProps> = ({ user, editHandler }) => {
         }}
       >
         <Button onClick={handleSubmit(onSubmit)}>Сохранить</Button>
-        <button className={s.mainInfo__delete}>Удалить профиль</button>
+        <button onClick={deleteHandler} className={s.mainInfo__delete}>Удалить профиль</button>
       </BoxElements>
     </div>
   );

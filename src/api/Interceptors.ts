@@ -1,5 +1,6 @@
 import { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import Cookies from 'js-cookie';
+import { config } from '../config';
 
 const onRequest = (config: AxiosRequestConfig): AxiosRequestConfig => {
   if (config.headers) {
@@ -13,6 +14,12 @@ const onRequestError = (error: AxiosError): Promise<AxiosError> => {
 };
 
 const onResponse = (response: AxiosResponse): AxiosResponse => {
+  console.log('response.config ', response.data);
+  if (response.data.token) {
+    Cookies.remove(config.userToken);
+    Cookies.set(config.userToken, response.data.token);
+  }
+
   return response.data;
 };
 

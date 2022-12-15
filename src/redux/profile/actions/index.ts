@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { IUserData, IUserEditData, IUserEditRes } from '../../../types/profile';
+import { IUserData, IUserDelete, IUserEditData, IUserEditRes } from '../../../types/profile';
 
 export enum EUserActions {
   SET_PROFILE = 'PROFILE:SET_PROFILE',
@@ -8,6 +8,7 @@ export enum EUserActions {
   RESET_PROFILE = 'PROFILE:RESET',
   EDIT_PROFILE = 'PROFILE:EDIT_PROFILE',
   SET_EDIT_PROFILE = 'PROFILE: SET_EDIT_PROFILE',
+  DELETE_PROFILE = 'PROFILE:DELETE_PROFILE',
 }
 
 const setProfile = createAction<IUserData>(EUserActions.SET_PROFILE);
@@ -16,6 +17,7 @@ const logout = createAction(EUserActions.LOGOUT);
 const resetProfile = createAction(EUserActions.RESET_PROFILE);
 const editProfile = createAction<IUserEditData>(EUserActions.EDIT_PROFILE);
 const setEditProfile = createAction<IUserData>(EUserActions.SET_EDIT_PROFILE);
+const deleteProfile = createAction<IUserDelete>(EUserActions.DELETE_PROFILE);
 
 export const userActions = {
   setProfile,
@@ -24,4 +26,5 @@ export const userActions = {
   resetProfile,
   editProfile,
   setEditProfile,
+  deleteProfile,
 };
