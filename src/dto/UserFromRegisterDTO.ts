@@ -1,4 +1,5 @@
 import { IAuthRes } from '../types/auth';
+import { IPostDetail } from '../types/posts';
 import { IUserData } from '../types/profile';
 
 class UserFromRegister {
@@ -7,6 +8,7 @@ class UserFromRegister {
   email: string;
   avatar: string;
   aboutMe: string;
+  postsUser: IPostDetail[] | null;
 
   constructor(res: Omit<IAuthRes, 'token'>) {
     this.id = res.user.id;
@@ -14,6 +16,7 @@ class UserFromRegister {
     this.email = res.user.email;
     this.avatar = res.user.avatar ? res.user.avatar : '/images/no-avatar.jpeg';
     this.aboutMe = res.user.aboutMe !== null ? res.user.aboutMe : '';
+    this.postsUser = res.user.postsUser && res.user.postsUser.length ? res.user.postsUser : null;
   }
 
   toJSON(): IUserData {
@@ -23,6 +26,7 @@ class UserFromRegister {
       email: this.email,
       avatar: this.avatar,
       aboutMe: this.aboutMe,
+      postsUser: this.postsUser,
     };
   }
 }

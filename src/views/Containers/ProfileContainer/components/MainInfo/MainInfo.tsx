@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IUserData, IUserEditData } from '../../../../../types/profile';
 import BoxElements from '../../../../Elements/BoxElements/BoxElements';
@@ -24,7 +24,8 @@ const MainInfo: React.FC<IMainInfoProps> = ({ user, editHandler, deleteHandler }
     },
   });
 
-  const onSubmit = (data:Omit<IUserEditData, 'id'>) => {
+
+  const onSubmit = (data:Omit<IUserEditData, 'id' | 'postsUser'>) => {
     const obj = {...data, id:user.id}
     editHandler(obj)
   }
@@ -41,7 +42,7 @@ const MainInfo: React.FC<IMainInfoProps> = ({ user, editHandler, deleteHandler }
             <input type="text" {...register('name')}  />
           </div>
           <div className={s.mainInfo__field}>
-            <label htmlFor="">E-mail</label>
+            <label htmlFor="">E-mail:</label>
             <p>{user.email}</p>
           </div>
         </div>
