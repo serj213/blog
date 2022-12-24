@@ -28,8 +28,9 @@ function* executeRegistration(data: Action<IAuthReq>) {
     }
 
     yield put(userActions.setProfile(user));
+    yield data.payload.redirect();
     yield put(authStatus.success());
-    yield notifications('Вы успешно зарегистрировали').success();
+    yield notifications('Вы успешно зарегистрировались').success();
   } catch (e) {
     const error = e as AxiosError;
     const errorMessage = error.response?.data as IApiError;

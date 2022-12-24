@@ -9,7 +9,7 @@ import s from './FormAuth.module.scss';
 
 interface IFormAuthProps {
   typeScreen: IAuthTypeScreen;
-  submit: (data: IAuthReq) => void;
+  submit: (data: Omit<IAuthReq, 'redirect'>) => void;
 }
 
 const FormAuth: React.FC<IFormAuthProps> = ({ typeScreen, submit }) => {
@@ -26,7 +26,7 @@ const FormAuth: React.FC<IFormAuthProps> = ({ typeScreen, submit }) => {
     },
   });
 
-  const onSubmit = (data: IAuthReq) => {
+  const onSubmit = (data: Omit<IAuthReq, 'redirect'>) => {
     submit(data);
   };
 

@@ -35,45 +35,57 @@ const PublishedArticles: React.FC<IPublishedArticlesProps> = ({ myPosts }) => {
         <p>Опубликованные статьи</p>
       </Text>
 
-      <div className={s.publishedArticles__sliderBox}>
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={2}
-          speed={700}
-          pagination={{
-            type: 'fraction',
-          }}
-          navigation={{
-            prevEl: prevArrow.current,
-            nextEl: nextArrow.current,
-            disabledClass:s.disabled
-          }}
-          modules={[Pagination, Navigation]}
-          className={s.slider}
-        >
-          {myPosts !== null && myPosts
-            ? myPosts.map(({ id, category, title, createdAt }) => {
-                return (
-                  <SwiperSlide key={id}>
-                    <PublishedArticlesItem category={category} title={title} date={createdAt} />
-                  </SwiperSlide>
-                );
-              })
-            : null}
-        </Swiper>
+      {myPosts !== null ? (
+        <div className={s.publishedArticles__sliderBox}>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={2}
+            speed={700}
+            pagination={{
+              type: 'fraction',
+            }}
+            navigation={{
+              prevEl: prevArrow.current,
+              nextEl: nextArrow.current,
+              disabledClass: s.disabled,
+            }}
+            modules={[Pagination, Navigation]}
+            className={s.slider}
+          >
+            {myPosts.map(({ id, category, title, createdAt }) => {
+              return (
+                <SwiperSlide key={id}>
+                  <PublishedArticlesItem category={category} title={title} date={createdAt} />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
 
-        <div ref={prevArrow} className={s.arrow_prev}>
-          <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 6.5L0.75 0.00480938V12.9952L12 6.5Z"/>
-          </svg>
-        </div>
+          <div ref={prevArrow} className={s.arrow_prev}>
+            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 6.5L0.75 0.00480938V12.9952L12 6.5Z" />
+            </svg>
+          </div>
 
-        <div ref={nextArrow} className={s.arrow_next}>
-          <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 6.5L0.75 0.00480938V12.9952L12 6.5Z"/>
-          </svg>
+          <div ref={nextArrow} className={s.arrow_next}>
+            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 6.5L0.75 0.00480938V12.9952L12 6.5Z" />
+            </svg>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className={s.publishedArticles__inner}>
+          <Text
+            modificators={{
+              size: 'small',
+              color: 'grey',
+              positions:'center'
+            }}
+          >
+            <p>У вас опубликованных статей :(</p>
+          </Text>
+        </div>
+      )}
     </div>
   );
 };

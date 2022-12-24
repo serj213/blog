@@ -10,7 +10,7 @@ import s from './ModalAuth.module.scss';
 
 interface IModalAuthProps {
   typeScreen: IAuthTypeScreen;
-  submit:(data:IAuthReq) => void
+  submit:(data:Omit<IAuthReq, 'redirect'>) => void
 }
 
 export const ModalAuth: React.FC<IModalAuthProps> = ({ typeScreen , submit}) => {

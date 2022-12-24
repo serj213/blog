@@ -13,11 +13,11 @@ const AuthContainer: React.FC = () => {
   const authType = useAuthType();
   const navigate = useNavigate();
 
-  const onSubmitRegistrationData = (data: IAuthReq) => {    
-    dispatch(authActions.registration(data));
+  const onSubmitRegistrationData = (data: Omit<IAuthReq, 'redirect'>) => {
+    dispatch(authActions.registration({ ...data, redirect: () => redirectToMainPage() }));
   };
 
-  const onSubmitLoginData = (data: IAuthReq) => {
+  const onSubmitLoginData = (data: Omit<IAuthReq, 'redirect'>) => {
     const { name, ...obj } = data;
     const loginData = { ...obj, redirect: () => redirectToMainPage() };
     dispatch(authActions.login(loginData));

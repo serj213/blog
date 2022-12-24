@@ -9,11 +9,10 @@ export interface IAuthReq {
   name: string;
   email: string;
   password: string;
-}
-
-export interface IAuthReqLogin extends Omit<IAuthReq, 'name'> {
   redirect: () => void;
 }
+
+export interface IAuthReqLogin extends Omit<IAuthReq, 'name'> {}
 
 export type IAuthTypeScreen = 'login' | 'registr';
 
