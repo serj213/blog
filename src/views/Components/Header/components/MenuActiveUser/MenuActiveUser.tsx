@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IUserData } from '../../../../../types/profile';
 import BoxElements from '../../../../Elements/BoxElements/BoxElements';
 
@@ -15,6 +15,7 @@ interface IMenuActiveUser {
 const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar, logout, user }) => {
   const [menuProfile, setMenuProfile] = useState(false);
   const menuRef = useRef(null);
+  const navigation = useNavigate();
 
   useEffect(() => {
     const outsideClick = (e: MouseEvent) => {
@@ -31,6 +32,11 @@ const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar, logout, u
     setMenuProfile(true);
   };
 
+  const goToProfile = () => {
+    navigation(`profile/${user.id}`);
+    setMenuProfile(false);
+  };
+
   return (
     <div ref={menuRef} className={s.menuActiveUser}>
       <BoxElements click={visibleMenuList} modificators={{ flex: true, alignItems: 'center', cursorPointer: true }}>
@@ -43,7 +49,7 @@ const MenuActiveUser: React.FC<IMenuActiveUser> = ({ userName, avatar, logout, u
       {menuProfile && (
         <ul className={s.menuActiveUser__list}>
           <li>
-            <Link to={`profile/${user.id}`}>Профиль</Link>
+            <button onClick={goToProfile}>Профиль</button>
           </li>
           <li>
             <button onClick={logout}>Выйти</button>

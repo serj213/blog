@@ -28,17 +28,15 @@
   }
 
   li {
-    a,
     button {
         display: block;
       font-size: 20px;
       line-height: 23px;
       color: $title;
       background-color: transparent;
-    }
-
-    a{
+      &:first-child{
         margin-bottom: 15px;
+      }
     }
 
     button {
